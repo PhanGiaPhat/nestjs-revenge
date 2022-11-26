@@ -5,6 +5,7 @@ import { UsersModule } from './users/users.module';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import AppDataSource from '../ormconfig';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { EpicsModule } from './epics/epics.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         AppDataSource.options,
     }),
     UsersModule,
+    EpicsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -16,12 +16,21 @@ export class UsersService {
   }
 
   async findAll() {
-    return await this.usersRepository.find();
+    return await this.usersRepository.find({
+      relations: {
+        epics: true,
+      },
+    });
   }
 
   async findOne(id: string) {
-    return await this.usersRepository.findOneBy({
-      id: id,
+    return await this.usersRepository.findOne({
+      where: {
+        id: id,
+      },
+      relations: {
+        epics: true,
+      },
     });
   }
 
