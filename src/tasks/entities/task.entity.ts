@@ -5,6 +5,7 @@ import {
   Column,
   JoinColumn,
   ManyToOne,
+  OneToMany,
 } from 'typeorm';
 
 import { BaseEntity } from '../../db/base-entity';
@@ -23,4 +24,10 @@ export class TaskEntity extends BaseEntity {
   @ManyToOne(() => EpicEntity, (epic) => epic.tasks, { cascade: true })
   @JoinColumn()
   epic: EpicEntity;
+
+  @ManyToOne(() => TaskEntity, (task) => task.childTasks)
+  parentTask: TaskEntity;
+
+  @OneToMany(() => TaskEntity, (task) => task.parentTask)
+  childTasks: TaskEntity[];
 }

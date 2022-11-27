@@ -22,6 +22,8 @@ export class TasksService {
     return await this.tasksRepository.find({
       relations: {
         epic: true,
+        parentTask: true,
+        childTasks: true,
       },
     });
   }
@@ -31,6 +33,8 @@ export class TasksService {
       where: { id: id },
       relations: {
         epic: true,
+        parentTask: true,
+        childTasks: true,
       },
     });
   }
