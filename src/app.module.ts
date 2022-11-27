@@ -6,6 +6,7 @@ import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import AppDataSource from '../ormconfig';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { EpicsModule } from './epics/epics.module';
+import { TasksModule } from './tasks/tasks.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { EpicsModule } from './epics/epics.module';
     }),
     UsersModule,
     EpicsModule,
+    TasksModule,
   ],
   controllers: [AppController],
   providers: [AppService],
