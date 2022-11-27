@@ -1,9 +1,11 @@
+import { TaskEntity } from 'src/tasks/entities/task.entity';
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
 import { BaseEntity } from '../../db/base-entity';
 import { UserEntity } from '../../users/entities/user.entity';
@@ -22,4 +24,8 @@ export class EpicEntity extends BaseEntity {
   @ManyToOne(() => UserEntity, (user) => user.epics, { cascade: true })
   @JoinColumn()
   user: UserEntity;
+
+  @OneToMany(() => TaskEntity, (task) => task.epic)
+  @JoinColumn()
+  tasks: TaskEntity[];
 }

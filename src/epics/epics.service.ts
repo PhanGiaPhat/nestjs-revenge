@@ -22,6 +22,7 @@ export class EpicsService {
     return await this.epicsRepository.find({
       relations: {
         user: true,
+        tasks: true,
       },
     });
   }
@@ -33,6 +34,7 @@ export class EpicsService {
       },
       relations: {
         user: true,
+        tasks: true,
       },
     });
   }

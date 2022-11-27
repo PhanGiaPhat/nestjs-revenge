@@ -39,4 +39,14 @@ export class TasksController {
   async remove(@Param('id') id: string) {
     return await this.tasksService.remove(id);
   }
+
+  @Patch(':id/epics/:epicId')
+  async link(@Param('id') id: string, @Param('epicId') epicId: string) {
+    return await this.tasksService.link(id, epicId);
+  }
+
+  @Delete(':id/epics')
+  async unLink(@Param('id') id: string) {
+    return await this.tasksService.unLink(id);
+  }
 }

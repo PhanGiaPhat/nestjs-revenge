@@ -1,4 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { EpicEntity } from 'src/epics/entities/epic.entity';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  JoinColumn,
+  ManyToOne,
+} from 'typeorm';
 
 import { BaseEntity } from '../../db/base-entity';
 
@@ -12,4 +19,8 @@ export class TaskEntity extends BaseEntity {
 
   @Column()
   name: string;
+
+  @ManyToOne(() => EpicEntity, (epic) => epic.tasks, { cascade: true })
+  @JoinColumn()
+  epic: EpicEntity;
 }
