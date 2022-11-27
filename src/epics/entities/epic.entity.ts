@@ -1,4 +1,4 @@
-import { TaskEntity } from 'src/tasks/entities/task.entity';
+import { TaskEntity } from '../../tasks/entities/task.entity';
 import {
   Entity,
   PrimaryGeneratedColumn,

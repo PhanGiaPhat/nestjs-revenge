@@ -1,4 +1,4 @@
-import { EpicEntity } from 'src/epics/entities/epic.entity';
+import { EpicEntity } from '../../epics/entities/epic.entity';
 import {
   Entity,
   PrimaryGeneratedColumn,
